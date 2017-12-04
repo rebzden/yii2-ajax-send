@@ -47,7 +47,7 @@ class AjaxSend extends Widget
 
         $view->registerJs("
         if (typeof ajaxSend === 'undefined') {
-            ajaxSend = new AjaxPartial({$_options})
+            ajaxSend = new AjaxSend({$_options})
         }else{
             ajaxSend.addSelectors({$selectors});
         }");
