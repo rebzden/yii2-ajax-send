@@ -23,7 +23,12 @@ function AjaxSend(ajaxSelectors) {
             if (skipCheck || !hasSelector(selectors, element.selector)) {
                 $("body").on("" + element.trigger, "" + element.selector, function (e) {
                     e.preventDefault();
-                    var url = element.urlAttribute ? $(this).attr("" + element.urlAttribute) : $(this).attr('href');
+                    var url = "";
+                    if (element.url) {
+                        url = element.url;
+                    } else {
+                        element.urlAttribute ? $(this).attr("" + element.urlAttribute) : $(this).attr('href');
+                    }
                     sendAjax(element, url);
                 });
             }
