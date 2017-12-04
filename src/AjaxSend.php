@@ -41,13 +41,10 @@ class AjaxSend extends Widget
         AjaxSendAsset::register($view);
 
         $selectors = Json::encode($this->selectors);
-        $_options = Json::encode([
-            'selectors' => $this->selectors
-        ]);
 
         $view->registerJs("
         if (typeof ajaxSend === 'undefined') {
-            ajaxSend = new AjaxSend({$_options})
+            ajaxSend = new AjaxSend({$selectors})
         }else{
             ajaxSend.addSelectors({$selectors});
         }");
